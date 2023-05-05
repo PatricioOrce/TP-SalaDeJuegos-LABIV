@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-12">
+        <div class="mb-5" *ngIf="authService.isLoggedIn">
+            <div class="row">
+                <div class="col-3"> <h1>Email</h1> </div>
+                <div class="col-7"><h2 *ngIf="loggedUser">{{loggedUser}}</h2></div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <h3>Juegos</h3>
+
+                    <a routerLink="/ahorcado"> <h4>Ahorcado</h4> </a>
+                    <a routerLink="/mayor-menor"> <h4>Mayor Menor</h4> </a>
+                    <a routerLink="/preguntados"> <h4>Preguntados</h4> </a>
+                    <!-- <a routerLink="/snake"> <h4>Snake (juego propio)</h4> </a> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+body {
+    min-height: 75rem;
+  }
+  
+  a {
+    color: white;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  a:hover {
+    transform: scale(1.1);
+  }
+  
+  .pointer {
+    cursor: pointer !important;
+  }

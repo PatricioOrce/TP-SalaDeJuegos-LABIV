@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tpsaladejuegos-8d4ad": {
+      "hosting": {
+        "SalaDeJuegos": [
+          "tpsaladejuegos-8d4ad"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tpsaladejuegos-8d4ad"
+  }
+}
