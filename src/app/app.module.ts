@@ -13,6 +13,7 @@ import { MenuPrincipalComponent } from './components/menu-principal/menu-princip
 import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { QuienSoyComponent } from './components/quien-soy/quien-soy.component';
+import { RegistroComponent } from './components/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { QuienSoyComponent } from './components/quien-soy/quien-soy.component';
     HomeComponent,
     LoginComponent,
     MenuPrincipalComponent,
-    QuienSoyComponent
+    QuienSoyComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
