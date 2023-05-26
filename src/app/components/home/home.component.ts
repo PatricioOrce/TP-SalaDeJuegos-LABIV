@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   constructor(private auth: AuthService) {
     this.authService = auth;
   }
-  loggedUser: string | null  = localStorage.getItem("loggedAccount");
+  loggedUser: string | undefined  = this.auth.usuario?.email+(this.auth.usuario?.isAdmin ? "(Admin)" : '');
   ngOnInit(): void {
   }
 

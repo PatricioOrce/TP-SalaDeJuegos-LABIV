@@ -3,67 +3,71 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { Usuario } from '../clases/usuario';
 import Swal from 'sweetalert2';
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService implements OnInit {
-  [x: string]: any;
+  // [x: string]: any;
 
-  constructor(private fireauth: AngularFireAuth, private router: Router) {}
+  constructor(private fireauth: AngularFireAuth, 
+              private router: Router,
+              private storage: StorageService) {}
 
   isLoggedIn: boolean =false;
-
+  usuario: Usuario | undefined = undefined;
+  ngOnInit(): void {}
+  
+  
   updateLoginStatus(status: boolean): void {
     this.isLoggedIn = status;
   }
+ 
+  SignIn(receivedEmail: string, password: string) {
 
-  ngOnInit(): void {}
-  SignIn(email: string, password: string) {
-    console.log("asd");
-    this.fireauth.signInWithEmailAndPassword(email, password).then(
-      (res) => {
-        localStorage.setItem('token', 'true');
-        localStorage.setItem('loggedAccount', email);
-
-        this.isLoggedIn = true;
+    //Se realiza el Login
+    this.fireauth.signInWithEmailAndPassword(receivedEmail, password).then(
+      async (res) => {
+        this.updateLoginStatus(true);
+        const result = await this.storage.getById('usuarios', res.user?.uid);
+        this.usuario = result;
+        console.log(this.usuario);
         Swal.fire({
           position: 'center',
           icon: 'success',
           title: 'Logged In Succesfully',
+        })
+        this.router.navigate(['/home']);
+      },
+      (err) => {
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: err.message,
           showConfirmButton: false,
           timer: 1500
         })
-        if (res.user?.emailVerified == true) {
-          this.router.navigate(['/home']);
-        } else {
-          this.router.navigate(['/home']);
-        }
-      },
-      (err) => {
-        alert(err.message);
         this.router.navigate(['/login']);
       }
     );
 
   }
 
-  // SignUp(email: any, password: any, isAdmin =false) {
-  //   return this.fireauth.createUserWithEmailAndPassword(email, password)
-  //     .then((result: any) => {
-  //       /* Call the SendVerificaitonMail() function when new user sign
-  //       up and returns promise */
-  //       this.SetUserData(result.user, 'creation', isAdmin);
-  //       alert('Account creation succeed')
-  //       this.router.navigate(['']);
-  //     })
-  // }
-  SignUp(email: string, password: string) {
-    return this.fireauth.createUserWithEmailAndPassword(email, password).then(
+  SignUp(receivedEmail: string, password: string) {
+    return this.fireauth.createUserWithEmailAndPassword(receivedEmail, password).then(
       (res) => {
-        alert('Registration Successful');
+        this.storage.saveDoc({uid: res.user?.uid, email: receivedEmail, isAdmin: false}, "usuarios", res.user?.uid)
+        .catch(x => console.log("Error", x));
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Registration Successful',
+          showConfirmButton: false,
+          timer: 1500
+        })
         // this['sendEmailForVarification'](res.user);
-        this.SignIn(email,password);
+        this.SignIn(receivedEmail,password);
         // this.router.navigate(['/login']);
       }
     );
@@ -72,13 +76,17 @@ export class AuthService implements OnInit {
   SignOut() {
     this.fireauth.signOut().then(
       () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('loggedAccount');
-        this.isLoggedIn = false;
+        this.updateLoginStatus(false);
         this.router.navigate(['/login']);
       },
       (err) => {
-        alert(err.message);
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: err.message,
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
     );
   }
