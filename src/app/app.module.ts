@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { QuienSoyComponent } from './components/quien-soy/quien-soy.component';
 import { RegistroComponent } from './components/registro/registro.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RegistroComponent } from './components/registro/registro.component';
     LoginComponent,
     MenuPrincipalComponent,
     QuienSoyComponent,
-    RegistroComponent
+    RegistroComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

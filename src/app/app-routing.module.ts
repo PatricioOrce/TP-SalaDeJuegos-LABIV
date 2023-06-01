@@ -11,6 +11,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'registrarse', component: RegistroComponent },
   { path: 'quienSoy', component: QuienSoyComponent },
+  { path: 'ahorcado', loadChildren: () => import('./modules/ahorcado/ahorcado.module').then(m => m.AhorcadoModule) },
+  { path: 'mayormenor', loadChildren: () => import('./modules/mayormenor/mayormenor.module').then(m => m.MayormenorModule) },
 
 ];
 

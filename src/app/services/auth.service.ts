@@ -23,7 +23,9 @@ export class AuthService implements OnInit {
   updateLoginStatus(status: boolean): void {
     this.isLoggedIn = status;
   }
- 
+  get getUser(): Usuario | undefined {
+      return this.usuario
+  }
   SignIn(receivedEmail: string, password: string) {
 
     //Se realiza el Login
