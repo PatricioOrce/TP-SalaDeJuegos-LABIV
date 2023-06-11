@@ -1,0 +1,66 @@
+
+#container{
+    position: relative;
+}
+#container::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);
+    background-image: url("https://scarletviolet.pokemon.com/_images/news/aug_3/world-map.jpg");
+}
+
+/* Question Section */
+
+
+.question-square{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.pokemon-img{
+    width: 25%;
+    height: 25%;
+    border: 5px solid grey;
+    border-radius: 10%;
+    background-color: white;
+}
+
+/* Option Section */
+.options-square{
+    display: block;
+    margin: 10px;
+    margin-left: 20%;
+}
+
+.option-square{
+    width: 75%;
+    border: 1px solid rgb(185, 185, 185);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 5px;
+    text-align: center;
+    box-shadow: 10px 5px 5px grey;
+    
+}
+
+.option-square:hover{
+    background-color: grey;
+    border: 1px solid black;
+    box-shadow: 10px 5px 5px grey;
+}
+
+.correct-option {
+    background-color: green;
+  }
+  
+.incorrect-option {
+    background-color: red;
+}

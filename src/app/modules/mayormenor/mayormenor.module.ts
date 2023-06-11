@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { MayormenorRoutingModule } from './mayormenor-routing.module';
-import { MayormenorComponent } from './mayormenor.component';
+import { MayorMenorComponent } from './mayormenor.component';
+import { MayorMenorRoutingModule } from './mayormenor-routing.module';
 
 
 @NgModule({
   declarations: [
-    MayormenorComponent
+    MayorMenorComponent,
   ],
   imports: [
     CommonModule,
-    MayormenorRoutingModule
+    MayorMenorRoutingModule,
+
   ]
 })
-export class MayormenorModule { }
+export class MayorMenorModule { }

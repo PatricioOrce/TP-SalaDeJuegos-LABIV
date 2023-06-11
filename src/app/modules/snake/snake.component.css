@@ -1,0 +1,86 @@
+td {
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+  }
+  .food {
+    position: relative;
+  }
+  
+  .food::after {
+    content: "";
+    position: absolute;
+    left: 25%;
+    top: 25%;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    background-color: red;
+  }
+  
+  .head {
+    position: relative;
+  }
+  .head::after {
+    content: "";
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    width: 85%;
+    height: 85%;
+    border-radius: 50%;
+    background-color: coral;
+  }
+  
+  .snake {
+    position: relative;
+  }
+  
+  .snake::after {
+    content: "";
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    background-color: black;
+  }
+  
+  .arrow {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    border: 1px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .arrow:hover {
+    background-color: rgba(0, 0, 255, 0.322);
+  }
+  
+  .arrow:after {
+    border-style: solid;
+    border-color: blue;
+    border-width: 3px 3px 0 0;
+    content: "";
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+  }
+  
+  .arrow-top:after {
+    transform: translateX(-50%) rotate(-45deg);
+  }
+  .arrow-left:after {
+    transform: translateX(-50%) rotate(-135deg);
+  }
+  .arrow-right:after {
+    transform: translateX(-50%) rotate(45deg);
+  }
+  .arrow-bottom:after {
+    transform: translateX(-50%) rotate(135deg);
+  }
+  

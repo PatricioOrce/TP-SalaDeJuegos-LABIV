@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 // import { PuntajeService } from 'src/app/servicios/puntaje.service';
 
 const CANTIDAD_INTENTOS_FALLIDOS = 5;
@@ -23,7 +24,7 @@ export class AhorcadoComponent implements OnInit {
   intentos = CANTIDAD_INTENTOS_FALLIDOS
   openForm = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     this.http.get('assets/diccionario.txt',{ responseType: 'text' })
@@ -73,12 +74,33 @@ export class AhorcadoComponent implements OnInit {
       ) {
         this.juegoTerminado = true
         this.openForm = true
-        // this.puntajeService.CreateScore(this.intentos * 5, 'ahorcado')
     }
   }
 
   handleClose(value: any){
     this.openForm = false;
   }
+
+  reiniciarJuego() {
+    this.intentosFallidos = 0;
+    this.letrasElegidas = [];
+    this.juegoTerminado = false;
+    this.intentos = CANTIDAD_INTENTOS_FALLIDOS;
+  
+    this.http.get('assets/diccionario.txt', { responseType: 'text' }).pipe(
+      map((text: string) => text.toUpperCase()),
+      map((text: string) => this.removeAccents(text)),
+      map((text: string) => text.split('\n'))
+    ).subscribe(
+      (words: string[]) => {
+        this.palabra = words[Math.floor(Math.random() * words.length)];
+      }
+    );
+  }
+
+  irAHome() {
+    this.router.navigate(['/home']);
+  }
+  
 
 }

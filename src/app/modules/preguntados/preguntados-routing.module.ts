@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MayorMenorComponent } from './mayormenor.component';
+import { PreguntadosComponent } from './preguntados.component';
 
-const routes: Routes = [
-  { path: '', component:MayorMenorComponent }
-];
+const routes: Routes = [{ path: '', component: PreguntadosComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class MayorMenorRoutingModule { }
+export class PreguntadosRoutingModule { }

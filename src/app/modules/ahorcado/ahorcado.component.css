@@ -27,3 +27,8 @@
     background-color: grey;
   }
   
+
+  .space-beteen{
+    display: flex;
+    justify-content: space-around;
+  }

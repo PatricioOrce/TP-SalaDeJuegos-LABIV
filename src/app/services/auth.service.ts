@@ -23,6 +23,7 @@ export class AuthService implements OnInit {
   updateLoginStatus(status: boolean): void {
     this.isLoggedIn = status;
   }
+  
   get getUser(): Usuario | undefined {
       return this.usuario
   }
@@ -79,7 +80,7 @@ export class AuthService implements OnInit {
     this.fireauth.signOut().then(
       () => {
         this.updateLoginStatus(false);
-        this.router.navigate(['/login']);
+        this.router.navigate(['/welcome']);
       },
       (err) => {
         Swal.fire({
@@ -100,13 +101,6 @@ export class AuthService implements OnInit {
       displayName: user.displayName,
       isAdmin
     }
-    const currentdate = new Date();
-    const datetime = currentdate.getDate() + "/"
-      + (currentdate.getMonth() + 1) + "/"
-      + currentdate.getFullYear() + " @ "
-      + currentdate.getHours() + ":"
-      + currentdate.getMinutes() + ":"
-      + currentdate.getSeconds();
 
     localStorage.setItem('user', JSON.stringify(userData));
   }

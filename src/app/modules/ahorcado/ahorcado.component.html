@@ -1,4 +1,8 @@
 <ng-container *ngIf="palabra">
+    <div class="space-beteen ">
+        <button (click)="reiniciarJuego()" class="btn btn-primary">Reiniciar juego</button>
+        <button (click)="irAHome()" class="btn btn-primary">Volver al inicio</button>
+    </div>
     <div class="row">
         <div class="col-12">
             <ng-container *ngIf="juegoTerminado">
@@ -43,10 +47,6 @@
                 </span>
             </div>
         </div>
-
-        <!-- <div class="col-12">
-            <app-tabla-puntuacion [juego]="'ahorcado'"></app-tabla-puntuacion>
-        </div> -->
     </div>
-    <!-- <app-form *ngIf="openForm" (closeHandler)="handleClose($event)" [juego]="'ahorcado'"></app-form> -->
+
 </ng-container>

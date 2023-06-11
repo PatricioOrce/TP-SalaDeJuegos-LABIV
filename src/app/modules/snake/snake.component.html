@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-8">
+        <table>
+            <tr *ngFor="let row of grid">
+                <td
+                 [class.food]="cell === 'food'"
+                 [class.head]="cell === 'head'"
+                 [class.snake]="cell === true"
+                 class="cell"
+                 *ngFor="let cell of row"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-2">
+        <div class="d-flex justify-content-center">
+            <div class="arrow arrow-top" (click)="changeDirection('ArrowUp')"></div>
+        </div>
+        <div class="d-flex justify-content-between">
+            <div class="arrow arrow-left" (click)="changeDirection('ArrowLeft')"></div>
+            <div class="arrow arrow-right" (click)="changeDirection('ArrowRight')"></div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="arrow arrow-bottom" (click)="changeDirection('ArrowDown')"></div>
+        </div>
+    </div>
+    <div class="col-2">
+        <h1>SNAKE</h1>
+        <h3 class="my-4">Puntos <span class="text-primary">{{puntos}}</span></h3>
+        <button class="btn btn-primary mt-5" (click)="start()">Start</button>
+    </div>
+    <div class="col-12">
+    </div>
+</div>

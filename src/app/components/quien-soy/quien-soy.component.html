@@ -5,7 +5,6 @@
     <div class="row section-intro">
         <div class="col-twelve">
 
-            <h5>About</h5>
             <h1>Hola! Me llamo Patricio.</h1>
 
             <div class="intro-info">
@@ -49,46 +48,29 @@
                 <li>
                     <strong>Email:</strong>
                     <span>patricioorce2001@gmail.com</span>
+                </li>                
+                <li>
+                    <strong>Juego:</strong>
+
+                    <p>El juego que elegí es el Snake. Es un juego clásico y simple en el que controlamos una serpiente que tiene que moverse por un tablero y comer comida para crecer. 
+                    El objetivo es obtener la puntuación más alta sin chocar contra los bordes del tablero ni contra su propio cuerpo. Decidí desarrollar este juego 
+                    porque siempre me gustó y pensé que sería un buen proyecto para practicar los conceptos de programación en TypeScript y Angular.</p>
+                    <p>En términos generales, la lógica del juego es bastante intuitiva. Consiste en controlar una serpiente que se mueve por una cuadrícula. El objetivo, como ya mencioné anteriormente, es comer la mayor cantidad de alimentos posible sin chocar contra las paredes o contra su propio cuerpo.</p>
+                    <p>El código está estructurado en torno al componente principal llamado <i>SnakeComponent</i>. Aca se encuentra la lógica del juego. Además, se utilizan eventos del teclado para controlar el movimiento de la serpiente y se actualiza la interfaz gráfica en cada ciclo del juego.</p>
+                    <p>Una de las primeras cosas que se hace en el código es definir las configuraciones iniciales, como el tamaño de la cuadrícula y la dirección inicial de la serpiente. Esto se realiza mediante constantes y un objeto que mapea las teclas de flecha a las direcciones de movimiento.</p>
+                    <p>El juego utiliza una cuadrícula representada por un array bidimensional. El método <i>generateGrid()</i> se encarga de generar esta cuadrícula y se utiliza para renderizar el tablero del juego. Cada celda puede contener diferentes valores, como la serpiente, la comida o un espacio vacío.</p>
+                    <p>La serpiente se representa mediante la clase <i>Snake</i>. Al inicio del juego, se genera una serpiente inicial con una posición y un tamaño predeterminados. En cada ciclo del juego, la serpiente se mueve en la dirección actual y se verifica si ha comido la comida o si ha perdido al chocar consigo misma.</p>
+                    <p>El control del juego se realiza mediante eventos del teclado. Cuando se presiona una tecla de flecha, se actualiza la dirección de la serpiente y se fuerza la actualización de su posición. Esto se maneja a través de los métodos <i>keyEvent()</i> y <i>changeDirection()</i>.</p>
+                    <p>El ciclo del juego se ejecuta en intervalos regulares utilizando la función <i>cicle()</i>. En cada ciclo, se calcula la nueva posición de la serpiente, se verifica si ha comido la comida o ha perdido, y se actualiza la interfaz gráfica mediante el método <i>drawGrid()</i>.</p>
+                    <p>Para iniciar el juego, se llama al método <i>start()</i>, que establece una suscripción al ciclo del juego utilizando la librería RxJS. Si el jugador pierde, se detiene la suscripción, se reinician las propiedades del juego y se genera una nueva serpiente inicial.</p>
+                    <p>En resumen, el juego Snake que he desarrollado utiliza TypeScript y Angular. La lógica del juego se basa en mover una serpiente en una cuadrícula, comiendo alimentos y evitando chocar con las paredes y el propio cuerpo. El control se realiza mediante eventos del teclado y se actualiza la interfaz gráfica en cada ciclo del juego para reflejar los cambios en la posición de la serpiente y la comida.</p>
                 </li>
 
             </ul> <!-- /info-list -->
 
         </div>
 
-        <div class="col-six tab-full">
-
-            <h3>Skills</h3>
-            <p>Conocimiento en varias tecnologias, pero aplicadas laboralmente las siguientes:</p>
-
-             <ul class="skill-bars">
-                 <li>
-                     <div class="progress percent90"><span>90%</span></div>
-                     <strong>C#/ASP.NET</strong>
-                </li>
-                <li>
-                    <div class="progress percent90"><span>90%</span></div>
-                    <strong>MS SQL</strong>
-                </li>
-                <li>
-                     <div class="progress percent40"><span>40%</span></div>
-                     <strong>Golang</strong>
-                 </li>
-                 <li>
-                    <div class="progress percent35"><span>35%</span></div>
-                    <strong>KafkaMQ</strong>
-                </li>
-                <li>
-                    <div class="progress percent30"><span>30%</span></div>
-                    <strong>Elastic Search</strong>
-                </li>
-                <li>
-                    <div class="progress percent20"><span>20%</span></div>
-                    <strong>HTML/CSS/JS</strong>
-                </li>
-   
-             </ul> <!-- /skill-bars -->		
-
-        </div>
+        
 
     </div>
 </section> <!-- /process-->    

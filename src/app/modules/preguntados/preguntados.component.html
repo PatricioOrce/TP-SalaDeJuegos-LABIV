@@ -1,0 +1,12 @@
+<div id="container">
+    <div class="game-square">
+        <div class="question-square">
+            <h1>Quien es este Pokemon?</h1>
+            <img class="pokemon-img" src="{{correctPokemon.sprites}}" alt="pokemon-image">
+        </div>
+        <div class="options-square" *ngFor="let pokemon of pokemons ">
+            <button id="{{pokemon.name}}" (click)="onChoose(pokemon.name)" class="option-square">{{pokemon.name | uppercase}} </button>
+        </div>
+    </div>
+</div> 
+

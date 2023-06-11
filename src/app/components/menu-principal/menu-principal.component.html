@@ -1,19 +1,42 @@
-<nav class="site-header navbar-expand-md navbar-dark bg-dark mb-4">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="nav-item nav-link py-2" routerLink="home">Home
-        <span class="light-arrow"></span>
-      </a>
-      <a class="nav-item nav-link py-2" routerLink="quienSoy">Quien Soy
-        <span class="light-arrow"></span>
-      </a>
-      <a class="nav-item nav-link py-2" *ngIf="!authService.isLoggedIn" routerLink="login">Login
-        <span class="light-arrow"></span>
-      </a>
-      <a class="nav-item nav-link py-2" *ngIf="!authService.isLoggedIn" routerLink="registrarse">Registrarse
-        <span class="light-arrow"></span>
-      </a>
-      <a class="pointer nav-item nav-link py-2" *ngIf="authService.isLoggedIn" (click)="authService.SignOut()">Desloguearse
-        <span class="light-arrow"></span>
-      </a>
+<div class="container">
+  <h1 class="text-center mt-5">¡Estos son todos los juegos que vas a poder disfrutar!</h1>
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="card h-100 shadow">
+        <div class="card-body">
+          <h5 class="card-title text-center">Ahorcado</h5>
+          <p class="card-text text-center">¡Diviértete adivinando palabras en el clásico juego del Ahorcado!</p>
+        </div>
+      </div>
     </div>
-  </nav>
+
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="card h-100 shadow">
+        <div class="card-body">
+          <h5 class="card-title text-center">Preguntados</h5>
+          <p class="card-text text-center">Demuestra tus conocimientos en esta version especial del juego de Preguntados.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="card h-100 shadow">
+        <div class="card-body">
+          <h5 class="card-title text-center">Mayor o Menor</h5>
+          <p class="card-text text-center">Adivina si la próxima carta será mayor o menor en el emocionante juego Mayor o Menor.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="card h-100 shadow">
+        <div class="card-body">
+          <h5 class="card-title text-center">Snake</h5>
+          <p class="card-text text-center">Controla la serpiente y recoge la mayor cantidad de alimentos en el juego clásico de Snake.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3 class="text-center mt-5">Además, ¡contamos con una sala de chat integrada para que puedas comunicarte con la comunidad!</h3>
+  <h4 class="text-center mt-3">¡Muchos éxitos y diversión en la Sala de Juegos!</h4>
+</div>
